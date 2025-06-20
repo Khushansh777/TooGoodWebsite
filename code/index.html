@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TooGood Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -34,23 +35,23 @@
         
         </div>
             <div class="options">
-                <ul>
-                    <li>Shop</li>
-                    <li>wholesale</li>
-                    <li>Catering</li>
-                    <li>Donate</li>
-                <li>
-                  <button id="menu-option">
-                    <i class="fa-solid fa-bars"></i>
-                  </button>
-                </li> 
-                    <li><i class="fa-solid fa-cart-shopping"></i></li>
-                </ul>
+         <ul>
+            <li class="set-1">Shop</li>
+            <li class="set-1">Wholesale</li>
+            <li class="set-1">Catering</li>
+            <li class="set-1">Donate</li>
+            <li>
+              <button id="menu-option">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+            </li>
+            <li><i class="fa-solid fa-cart-shopping"></i></li>
+        </ul>
             </div>
        </nav>
     </header>
 <!-- main -->
-    <main>
+    <main datat-scroll-conatiner>
 
 
 
@@ -63,7 +64,7 @@
     <h1>THE</h1>
     <h1>COURSE</h1>
   </div>
-  <video autoplay src="/assets/video.mp4" loop muted></video>
+  <video data-scroll data-scroll-speed= '1' autoplay src="/assets/video.mp4" loop muted></video>
 </div>
 <section class="pledge">
     <h1>TAKE THE PLEDGE.</h1>
@@ -75,14 +76,60 @@
       </svg>
     </div>
 </section>
+<div class="good-divider">
+  <span class="good-text">BUY GOOD</span>
+  <span class="good-text right">DO GOOD</span>
+</div>
 <div id="page2">
+  <div class="element">
+    <img data-scroll data-scroll-speed="1" src="/assets/images/page-2-1.png" alt="Image 1" />
+    <div data-scroll data-scroll-speed="-1" class="selector">
+        <div class="selector-content">
+                    <div class="black-dot"></div>
+        <p>Shop</p>
+       <strong><p>Things</p></strong>
+        <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.237375 0.784804H1.61738L4.52138 3.5328L1.61738 6.2928H0.237375L3.14138 3.5328L0.237375 0.784804Z" fill="currentColor"></path></svg>
 
+        </div>
+    </div>
+     <div class="selector-more-content"></div>
+  </div>
+  <div class="element">
+    <img data-scroll data-scroll-speed="1" src="/assets/images/page-2-2.png" alt="Image 2" />
+        <div data-scroll data-scroll-speed="-1" class="selector">
+             <div class="selector-content">
+                    <div class="black-dot"></div>
+        <p>Shop</p>
+  <strong><p>Donations</p></strong>
+        <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.237375 0.784804H1.61738L4.52138 3.5328L1.61738 6.2928H0.237375L3.14138 3.5328L0.237375 0.784804Z" fill="currentColor"></path></svg>
+
+        </div>
+        </div>    
+         <div class="selector-more-content"></div>  
+  </div>
+  <div class="element">
+    <img data-scroll data-scroll-speed="1" src="/assets/images/page-2-3.png" alt="Image 3" />
+        <div data-scroll data-scroll-speed="-1" class="selector">
+             <div class="selector-content">
+                    <div class="black-dot"></div>
+        <p>Shop</p>
+        <strong><p>Bath</p></strong>
+        <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.237375 0.784804H1.61738L4.52138 3.5328L1.61738 6.2928H0.237375L3.14138 3.5328L0.237375 0.784804Z" fill="currentColor"></path></svg>
+        </div>
+        </div>
+        <div class="selector-more-content"></div>
+  </div>
+</div>
+<div class="page3">
 
 </div>
+
     </main>
 <!-- </footer> -->
     <footer>
     </footer>
+    <!-- locomotive cdn -->
+     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <!-- GSAP CDN -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

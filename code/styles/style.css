@@ -12,12 +12,6 @@ html
     overflow-x: hidden;
 }
 
-main {
-    width: 100vw;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0;
-}
 
 /* navbar */
 header{
@@ -33,7 +27,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    height: 10vh;
     padding: 2vw 2vw;
 }
 
@@ -56,7 +50,8 @@ nav{
     display: flex;
     align-items: center;
 }
-.options ul {
+.options ul, 
+.set-1 ul{
     display: flex;
     gap:1vw;
     list-style-type: none;
@@ -64,11 +59,34 @@ nav{
     height: 100%;
 }
 
+.set-1 ul {
+    display: flex;
+}
+
 .options ul li{
     margin-left: 3vw;
     text-transform: capitalize;
 }
 
+@media (max-width:600px) {
+    .logo{
+        font-size: 3vw;
+    }
+    .set-1 {
+        display: none !important;
+    }
+    #menu-option {
+        display: block;
+        background-color: transparent;
+             font-size: 3vh;
+    }
+    .options ul li{
+             font-size: 3vh;
+    }
+    nav{
+        z-index: 1000;
+    }
+}
 /* main nav */
 
 .main-nav{
@@ -106,16 +124,26 @@ nav{
     border: none;
 }
 
+@media (max-width:600px) {
+    .main-nav ul{
+        font-size: 6vh;
+        line-height: 2cm;
+    }
+
+}
+
 /* main */
 
 main{
-    height: calc(100% - 20vh);
-    width: 100%;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0;
 }
 /* hero section / text */
 #hero{
     margin-top: 15vh;
-    font-size: clamp(2rem, 7.5vw, 8rem);
+    font-size: clamp(1rem, 7.5vw, 8rem);
     width: 100vw;
     text-transform: uppercase;
     line-height: 1;
@@ -131,6 +159,7 @@ main{
     flex-direction: row;
     gap: 2vw;
 }
+
 
 /* video */
 
@@ -158,6 +187,14 @@ main{
     justify-content: center;
 }
 
+@media (max-width:600px) {
+    .cursor{
+        font-size: 8px;
+    }
+    #hero{
+        margin-top: 10vh;
+    }
+}
 /* section pledge */
 
 .pledge{
@@ -196,9 +233,177 @@ main{
     font-size: 3rem;
 }
 
+
+@media (max-width:600px) {
+    .pledge {
+        gap:2vh;
+        margin-top: 20vh;
+        z-index: 1000;
+    }
+    .pledge h1{
+        font-size: 2.5rem;
+    }
+    .pledge p{
+        width: 55%;
+        text-align: center;
+    }
+}
+
 /* page 2 */
 #page2{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+     gap:2vw;
+     display: flex;
+     margin: 0 2vw 0 2vw;
+    margin-bottom: 3vw;
+      flex-wrap: wrap;
+}
+
+#page2 img{
     width: 100%;
+    height: 90vh;
+    z-index: -99;
+}
+.element-1,
+ .element-2,
+    .element-3{
     height: 100%;
-    background-color: red;
+    width: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.element {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.selector {
+  position: absolute;
+  bottom: 50%;
+  left: 30%;
+  transform: translateX(-100%);
+  width: 14vw;
+  height: 5vh;
+  background-color: #dcb9a9;
+  z-index: 2;
+  display: flex;
+  justify-content: sp;
+  align-items: center;
+  border-radius: 0.5vw;
+  opacity: 0.9;
+  border-radius: 20px;
+}
+
+.selector-content{
+    display: flex;
+    justify-content: space-around;
+    width: inherit;
+    align-items: center;
+}
+.selector-more-content{
+    background-color: #F3E9E5;
+    height: 12vw;
+    width: 14vw;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 30%;
+    left: 81%;
+    transform: translateX(-100%);
+}
+.black-dot{
+    width:5px;
+    height:6px;
+    border-radius: 20px;
+    background-color: #000;
+}
+@media (max-width: 600px) {
+  #page2 {
+    flex-direction: column;
+    gap: 4vw;
+    height: auto;
+    margin: 2vw 0 3vw 0;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .element {
+    width: 100%;
+    height: auto;
+    min-height: 100px; /* or whatever looks good for your images */
+    margin-bottom: 2vw;
+    padding-left:2vw ;
+   margin-left: 1vw;
+
+  }
+  .element img {
+    width: 80%;
+    height: 60vh; /* or adjust as needed for aspect ratio */
+    object-fit: cover;
+    display: block;
+   
+  }
+  .page3 {
+    height: 50vh; /* or adjust as needed */
+  }
+  .selector{
+    width: 25vh;
+    left: 70%;
+  }
+}
+
+.good-line {
+  flex: 1 1 auto;
+  height: 2px;
+  background:transparent;
+  margin: 0 1vw;
+  min-width: 20px;
+  display: flex;
+}
+
+.good-divider {
+  position: relative;
+  width: 100%;
+  margin: 1em 0 2em 0;
+  height: 2.2em; /* enough for text and line */
+}
+
+.good-divider::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 1.2em;
+  height: 2px;
+  background: #444;
+  z-index: 0;
+}
+
+.good-text {
+  position: absolute;
+  top: 0;
+  font-size: 1rem;
+  color: #444;
+  background: transparent;
+  padding: 0 0.2em;
+  z-index: 1;
+}
+
+.good-text:not(.right) {
+  left: 0;
+}
+
+.good-text.right {
+  right: 0;
+}
+
+/* .page3 */
+.page3 {
+  background: #F7F7F7;
+  height: 100vh;
+  width: 100vw;
 }

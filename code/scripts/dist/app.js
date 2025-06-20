@@ -2,6 +2,10 @@
 // import gsap from "gsap";
 // import gsap from "gsap";
 // @ts-ignore
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('main'),
+    smooth: true
+});
 const nav = document.querySelector('nav');
 // @ts-ignore
 function bignavbarAnimation() {
@@ -49,8 +53,8 @@ function heroSectionAnimation() {
     gsap.from("#hero h1", {
         y: 30,
         opacity: 0,
-        stagger: .77,
-        duration: .77
+        stagger: .3,
+        duration: .5
     });
 }
 function cursorAnimation() {
@@ -79,8 +83,7 @@ function cursorAnimation() {
         });
     });
 }
-cursorAnimation();
-heroSectionAnimation();
-navbarAnimation();
-bignavbarAnimation();
+const selectorElement = document.querySelector('.selector-content');
+selectorElement.addEventListener('mouseenter', (e) => {
+});
 export {};
