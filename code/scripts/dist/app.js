@@ -1,18 +1,25 @@
-// import gsap from "gsap";
-// import gsap from "gsap";
-// import gsap from "gsap";
+var _a;
 // @ts-ignore
 const scroll = new LocomotiveScroll({
     el: document.querySelector('main'),
     smooth: true
+});
+gsap.registerPlugin(ScrollTrigger);
+scroll.on("scroll", ScrollTrigger.update);
+ScrollTrigger.scrollerProxy("main", {
+    scrollTop(value) {
+        return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
+    },
+    getBoundingClientRect() {
+        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+    },
+    pinType: ((_a = document.querySelector("main")) === null || _a === void 0 ? void 0 : _a.style.transform) ? "transform" : "fixed"
 });
 const nav = document.querySelector('nav');
 // @ts-ignore
 function bignavbarAnimation() {
     const mainNav = document.querySelector('.main-nav');
     const menuOption = document.getElementById('menu-option');
-    console.log(menuOption.innerHTML);
-    console.log(menuOption);
     const timeline = gsap.timeline({ paused: true, reversed: false });
     timeline.addLabel('lol');
     timeline.to(mainNav, {
@@ -29,11 +36,9 @@ function bignavbarAnimation() {
         color: '#fff',
         duration: 0.1
     });
-    menuOption.addEventListener('click', (e) => {
-        console.log(e);
+    menuOption.addEventListener('click', () => {
         if (timeline.reversed()) {
             timeline.play();
-            console.log(menuOption.innerHTML);
             menuOption.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         }
         else {
@@ -50,25 +55,25 @@ function navbarAnimation() {
     });
 }
 function heroSectionAnimation() {
-    gsap.from("#hero h1", {
-        y: 30,
-        opacity: 0,
-        stagger: .3,
-        duration: .5
+    document.querySelectorAll(".hero-row h1").forEach(function (elem) {
+        gsap.from(elem, {
+            opacty: 0,
+            y: 330,
+            delay: 1,
+            duration: 4,
+        });
     });
 }
 function cursorAnimation() {
     const video = document.querySelector('#hero video');
     const cursor = document.querySelector('.cursor');
-    video.addEventListener('mouseenter', (e) => {
-        console.log(e);
+    video.addEventListener('mouseenter', () => {
         gsap.to(cursor, {
             opacity: 1,
             scale: 1
         });
     });
-    video.addEventListener('mouseleave', (e) => {
-        console.log(e);
+    video.addEventListener('mouseleave', () => {
         gsap.to(cursor, {
             opacity: 0,
             scale: 0
@@ -76,14 +81,82 @@ function cursorAnimation() {
     });
     video.addEventListener('mousemove', (e) => {
         gsap.to(cursor, {
-            // x:e.x - 250,
-            // y:e.y + 250,
             top: e.clientY,
             left: e.clientX
         });
     });
 }
-const selectorElement = document.querySelector('.selector-content');
-selectorElement.addEventListener('mouseenter', (e) => {
-});
+function imagesSelectorAnimation() {
+    const elements = document.querySelectorAll('.element');
+    elements.forEach(element => {
+        // This animation will fade in each element as you scroll to it
+        gsap.from(element, {
+            opacity: 0,
+            y: 100,
+            duration: 0.6,
+            scrollTrigger: {
+                trigger: element,
+                scroller: 'main', // This is the critical fix
+                start: 'top 75%',
+                // markers: true // Markers will now appear in the correct position
+            }
+        });
+        // This part handles the existing hover effect for the pop-up
+        const selector = element.querySelector('.selector');
+        const content = element.querySelector('.selector-more-content');
+        if (selector && content) {
+            selector.addEventListener('mouseenter', () => {
+                gsap.to(content, {
+                    opacity: 1,
+                    duration: 0.3
+                });
+            });
+            element.addEventListener('mouseleave', () => {
+                gsap.to(content, {
+                    opacity: 0,
+                    duration: 0.3
+                });
+            });
+        }
+    });
+}
+function shopCartAnimation() {
+    const shop = document.querySelector('.shop');
+    if (shop) {
+        shop.addEventListener('mouseenter', () => {
+            gsap.to(shop, {
+                borderBottom: ' 1px solid #000',
+            });
+        });
+        shop.addEventListener('mouseleave', () => {
+            gsap.to(shop, {
+                borderBottom: 'none',
+            });
+        });
+    }
+}
+function pledgeAnimation() {
+    const pledge = document.querySelector('.pledge');
+    gsap.from(pledge, {
+        opacity: 0,
+        y: -30,
+        scrollTrigger: {
+            // markers:true,
+            scroller: 'main',
+            trigger: pledge,
+            bottom: '50%',
+            start: '-400%',
+            top: '50%'
+        }
+    });
+}
+pledgeAnimation();
+shopCartAnimation();
+imagesSelectorAnimation();
+cursorAnimation();
+heroSectionAnimation();
+navbarAnimation();
+bignavbarAnimation();
+ScrollTrigger.addEventListener("refresh", () => scroll.update());
+ScrollTrigger.refresh();
 export {};

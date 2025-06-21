@@ -57,6 +57,7 @@ nav{
     list-style-type: none;
     align-items: center;
     height: 100%;
+   
 }
 
 .set-1 ul {
@@ -66,6 +67,15 @@ nav{
 .options ul li{
     margin-left: 3vw;
     text-transform: capitalize;
+     cursor: pointer;
+}
+.set-1:hover{
+    color:#444;
+    border-bottom: 1px solid #000;
+}
+
+#menu-option:hover{
+    border-bottom: none;
 }
 
 @media (max-width:600px) {
@@ -289,7 +299,7 @@ main{
   bottom: 50%;
   left: 30%;
   transform: translateX(-100%);
-  width: 14vw;
+  width: 18vw;
   height: 5vh;
   background-color: #dcb9a9;
   z-index: 2;
@@ -299,6 +309,7 @@ main{
   border-radius: 0.5vw;
   opacity: 0.9;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .selector-content{
@@ -310,13 +321,48 @@ main{
 .selector-more-content{
     background-color: #F3E9E5;
     height: 12vw;
-    width: 14vw;
+    width: 17vw;
     border-radius: 20px;
     position: absolute;
-    bottom: 30%;
-    left: 81%;
-    transform: translateX(-100%);
+    bottom: 25%;
+    left: 62%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1vw;
+    opacity: 0;
 }
+
+.selector-more-content:empty {
+    display: none;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-item:first-child {
+    margin-right: 1vw;
+}
+
+#page2 .product-item img {
+    width: 6vw;
+    height: auto;
+    object-fit: contain;
+}
+
+.product-item p {
+    font-size: 0.8vw;
+    text-align: center;
+    font-family: futura, sans-serif;
+    white-space: nowrap;
+}
+
 .black-dot{
     width:5px;
     height:6px;
@@ -401,9 +447,34 @@ main{
   right: 0;
 }
 
-/* .page3 */
-.page3 {
-  background: #F7F7F7;
-  height: 100vh;
-  width: 100vw;
+/* shop to support */
+.support{ 
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    gap:15vw;
+    padding-left: 2vw;
+}
+
+.support .part1{
+    font-size: 2vw;
+    width: 50%;
+ 
+}
+
+.support .part2{
+    display: flex;
+    flex-direction: column;
+    gap:5vw;
+    width:30%;
+    font-size: 1.3vw;
+}
+
+.support .part2 .shop{
+    /* border-bottom: 1px solid #000; */
+    width: 9vw;
+    font-size: 1vw;
+    display: flex;
+    padding-bottom: 5px;
+    cursor: pointer;
 }
